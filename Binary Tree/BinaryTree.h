@@ -1,8 +1,6 @@
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
 
-#include <iostream>
-
 struct TreeNode
 {
 	int val;
