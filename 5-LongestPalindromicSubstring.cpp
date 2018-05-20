@@ -48,6 +48,6 @@ public:
 				t = i;
 			}
 		}
-		return s.substr ( id / 2, max_len);
+		return s.substr (id / 2, max_len);
 	}
 };
