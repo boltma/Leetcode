@@ -26,19 +26,42 @@ public:
 		return v;
 	}
 	*/
-	vector<int> inorderTraversal (TreeNode *root)
+	/*
+	vector<int> inorderTraversal(TreeNode* root)
 	{
+		stack<TreeNode *> s;
 		vector<int> v;
-		inorderTraversal (root, v);
+		while (root || !s.empty())
+		{
+			if (root)
+			{
+				s.push(root);
+				root = root->left;
+			}
+			else
+			{
+				root = s.top();
+				s.pop();
+				v.push_back(root->val);
+				root = root->right;
+			}
+		}
 		return v;
 	}
-	void inorderTraversal (TreeNode *root, vector<int> &v)
+	*/
+	vector<int> inorderTraversal(TreeNode *root)
+	{
+		vector<int> v;
+		inorderTraversal(root, v);
+		return v;
+	}
+	void inorderTraversal(TreeNode *root, vector<int> &v)
 	{
 		if (root == nullptr)
 			return;
-		inorderTraversal (root->left, v);
-		v.push_back (root->val);
-		inorderTraversal (root->right, v);
+		inorderTraversal(root->left, v);
+		v.push_back(root->val);
+		inorderTraversal(root->right, v);
 		return;
 	}
 };

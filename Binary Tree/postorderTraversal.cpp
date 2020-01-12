@@ -26,19 +26,52 @@ public:
 		return v;
 	}
 	*/
-	vector<int> postorderTraversal (TreeNode *root)
+	/*
+	typedef pair<bool, TreeNode *> elem;
+	vector<int> postorderTraversal(TreeNode* root)
 	{
+		stack<elem> s;
 		vector<int> v;
-		postorderTraversal (root, v);
+		while (root || !s.empty())
+		{
+			if (root)
+			{
+				s.push({true, root});
+				root = root->left;
+			}
+			else
+			{
+				root = s.top().second;
+				if (s.top().first)
+				{
+					s.top().first = false;
+					root = root->right;
+				}
+				else
+				{
+					v.push_back(root->val);
+					s.pop();
+					root = nullptr;
+				}
+
+			}
+		}
 		return v;
 	}
-	void postorderTraversal (TreeNode *root, vector<int> &v)
+	*/
+	vector<int> postorderTraversal(TreeNode * root)
+	{
+		vector<int> v;
+		postorderTraversal(root, v);
+		return v;
+	}
+	void postorderTraversal(TreeNode * root, vector<int> &v)
 	{
 		if (root == nullptr)
 			return;
-		postorderTraversal (root->left, v);
-		postorderTraversal (root->right, v);
-		v.push_back (root->val);
+		postorderTraversal(root->left, v);
+		postorderTraversal(root->right, v);
+		v.push_back(root->val);
 		return;
 	}
 };
